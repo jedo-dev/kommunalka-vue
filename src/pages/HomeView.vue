@@ -3,10 +3,26 @@ import { AreaChart } from '@/components/ui/chart-area'
 import { LangList } from '@/components/ui/langlist/index'
 
 const posts = [
-  { title: 'Vue js', id: 1, src: './src/images/vue.webp' },
-  { title: 'Node js', id: 2, src: './src/images/nodejs.png' },
-  { title: 'Mongo DB', id: 3, src: './src/images/mongo.png' },
-  { title: 'Express', id: 4, src: './src/images/express.png' }
+  {
+    title: 'Vue js',
+    id: 1,
+    src: 'https://gitlab.com/uploads/-/system/group/avatar/54254384/2560px-Vue.js_Logo_2.png'
+  },
+  {
+    title: 'Node js',
+    id: 2,
+    src: 'https://fuzeservers.ru/wp-content/uploads/c/c/b/ccb3f9c7433f1efac94ad20e0ef1b640.png'
+  },
+  {
+    title: 'Mongo DB',
+    id: 3,
+    src: 'https://i2.wp.com/miro.medium.com/1*9tNeX3ejfJ7XvNwTgc6c2Q.png'
+  },
+  {
+    title: 'Express',
+    id: 4,
+    src: 'https://wsofter.com/wp-content/uploads/2017/12/node-express.png'
+  }
 ]
 const data = [
   {
