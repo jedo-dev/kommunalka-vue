@@ -6,4 +6,4 @@ services:
     container_name: kommunalka-vue
     restart: unless-stopped
     ports:
-      - '3217:3000'
+      - '3218:3000'
