@@ -1,5 +1,4 @@
-<script setup lang="ts">
-import axios from 'axios'
+<script setup>
 import { onMounted } from 'vue'
 import { useStore } from 'vuex'
 import { CustomFooter } from './components/ui/footer/index'
@@ -10,23 +9,7 @@ const store = useStore()
 
 // Метод для проверки токена и получения данных о пользователе
 const checkAuth = async () => {
-  const token = sessionStorage.getItem('token')
-  if (token) {
-    try {
-      const response = await axios.get(`${process.env.BACKEND_URL}/auth/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      store.commit('auth/setUser', response.data)
-    } catch (error) {
-      console.error('Failed to authenticate', error)
-      sessionStorage.removeItem('token')
-      store.commit('auth/logout')
-    }
-  } else {
-    store.commit('auth/logout')
-  }
+  await store.dispatch('auth/checkAuth')
 }
 
 // Вызов метода при монтировании компонента
