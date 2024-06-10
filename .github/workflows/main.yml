@@ -18,13 +18,13 @@ jobs:
           npm run build
       - name: Docker Build image
         env:
-          VITE_APP_BACKEND_URL: ${{ secrets.VITE_APP_BACKEND_URL }}
+          VITE_APP_BACKEND_URL: ${{ vars.VITE_APP_BACKEND_URL }}
         run: |
           echo "Build Started..."
           docker build --pull --rm -f "Dockerfile" -t kommunalka-vue:latest "."
       - name: Docker Compose
         env:
-          VITE_APP_BACKEND_URL: ${{ secrets.VITE_APP_BACKEND_URL }}
+          VITE_APP_BACKEND_URL: ${{ vars.VITE_APP_BACKEND_URL }}
         run: |
           echo "Compose Started..."
           docker-compose up -d
