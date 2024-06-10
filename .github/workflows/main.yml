@@ -17,10 +17,14 @@ jobs:
         run: |
           npm run build
       - name: Docker Build image
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
         run: |
           echo "Build Started..."
           docker build --pull --rm -f "Dockerfile" -t kommunalka-vue:latest "."
       - name: Docker Compose
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
         run: |
           echo "Compose Started..."
           docker-compose up -d

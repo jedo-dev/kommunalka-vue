@@ -50,7 +50,7 @@ export const authModule = {
       commit('setLoading', true);
       commit('setError', null);
       try {
-        const response = await axios.post('http://localhost:4444/auth/login', { email, password });
+        const response = await axios.post(`${process.env.BACKEND_URL}auth/login`, { email, password });
         const userData = response.data;
         commit('setUser', userData);
         commit('setToken', userData.token);
@@ -63,7 +63,7 @@ export const authModule = {
     async fetchUser({ commit, state }) {
       if (!state.token) return;
       try {
-        const response = await axios.get('http://localhost:4444/auth/me', {
+        const response = await axios.get(`${process.env.BACKEND_URL}/auth/me`, {
           headers: {
             Authorization: `Bearer ${state.token}`,
           },
